@@ -30,7 +30,8 @@ pipeline {
                         set -x
                         npm run build
                         set +x
- 
+			npm pack 
+
                         npm publish
                     '''
                 }
