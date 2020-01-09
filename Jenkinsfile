@@ -31,6 +31,7 @@ pipeline {
                         npm run build
                         set +x
 			npm pack 
+			nexusPolicyEvaluation advancedProperties: '', failBuildOnNetworkError: false, iqApplication: selectedApplication('sandbox-application'), iqScanPatterns: [[scanPattern: '*tgz']], iqStage: 'build', jobCredentialsId: ''			
 
                         npm publish
                     '''
