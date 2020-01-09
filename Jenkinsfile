@@ -15,7 +15,7 @@ pipeline {
                 sh '''
 		    npm install
 		    npm pack
-		    nexusPolicyEvaluation advancedProperties: '', failBuildOnNetworkError: false, iqApplication: selectedApplication('sandbox-application'), iqScanPatterns: [[scanPattern: '*tgz']], iqStage: 'build', jobCredentialsId: '' 
+		    nexusPolicyEvaluation iqApplication: selectedApplication('sandbox-application'), iqStage: 'build' 
 		'''
             }
         }
