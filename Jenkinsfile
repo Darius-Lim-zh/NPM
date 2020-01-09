@@ -35,7 +35,7 @@ pipeline {
                         npm publish
                     '''
                 }
-		nexusPolicyEvaluation advancedProperties: '', failBuildOnNetworkError: false, iqApplication: selectedApplication('sandbox-application'), iqScanPatterns: [[scanPattern: '*json']], iqStage: 'build', jobCredentialsId: ''
+		nexusPolicyEvaluation advancedProperties: '', failBuildOnNetworkError: false, iqApplication: selectedApplication('sandbox-application'), iqStage: 'build', jobCredentialsId: ''
             }
         }
     }
