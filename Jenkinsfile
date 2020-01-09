@@ -12,11 +12,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '''
-		    npm install
-		    npm pack
-		    nexusPolicyEvaluation iqApplication: selectedApplication('sandbox-application'), iqStage: 'build' 
-		'''
+                sh 'npm install'
             }
         }
         stage('Test') {
@@ -34,10 +30,12 @@ pipeline {
                         set -x
                         npm run build
                         set +x
+			npm pack
 
                         npm publish
                     '''
                 }
+		nexusPolicyEvaluation advancedProperties: '', failBuildOnNetworkError: false, iqApplication: selectedApplication('sandbox-application'), iqScanPatterns: [[scanPattern: '*tgz']], iqStage: 'build', jobCredentialsId: ''
             }
         }
     }
